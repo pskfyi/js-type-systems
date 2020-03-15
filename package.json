@@ -1,0 +1,21 @@
+{
+  "name": "js-type-systems",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Utilities for working with JavaScript's type systems",
+  "main": "dist/index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Patrick Keenan <patrick.keenan.fyi@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "commitlint-config-monorepo": "^1.0.2",
+    "husky": "^4.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
