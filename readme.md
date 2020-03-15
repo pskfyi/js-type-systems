@@ -1,6 +1,7 @@
 # JS Type Systems
 
-<a href="https://codeclimate.com/github/pskfyi/js-type-systems/maintainability"><img src="https://api.codeclimate.com/v1/badges/6b03e1a0fd4af72b5c69/maintainability" /></a>
+[![codeclimate](https://api.codeclimate.com/v1/badges/6b03e1a0fd4af72b5c69/maintainability)](https://codeclimate.com/github/pskfyi/js-type-systems/maintainability)
+[![codecov](https://codecov.io/gh/pskfyi/js-type-systems/branch/develop/graph/badge.svg)](https://codecov.io/gh/pskfyi/js-type-systems)
 
 <img src="/logo.svg" width="300">
 
