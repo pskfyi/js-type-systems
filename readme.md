@@ -1,5 +1,7 @@
 # JS Type Systems
 
+<a href="https://codeclimate.com/github/pskfyi/js-type-systems/maintainability"><img src="https://api.codeclimate.com/v1/badges/6b03e1a0fd4af72b5c69/maintainability" /></a>
+
 <img src="/logo.svg" width="300">
 
 Utilities for working with JavaScript's type systems.
