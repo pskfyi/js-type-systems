@@ -5,6 +5,10 @@
 
 <img src="/logo.svg" width="300">
 
+\- [Documentation](https://js-type-system-dev-docs.netlify.com/)
+\- [GitHub Repo](https://github.com/pskfyi/js-type-systems)
+\-
+
 Utilities for working with JavaScript's type systems.
 
 > Note this is not yet on `npm`
