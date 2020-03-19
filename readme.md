@@ -3,14 +3,14 @@
 [![codeclimate](https://api.codeclimate.com/v1/badges/6b03e1a0fd4af72b5c69/maintainability)](https://codeclimate.com/github/pskfyi/js-type-systems/maintainability)
 [![codecov](https://codecov.io/gh/pskfyi/js-type-systems/branch/develop/graph/badge.svg)](https://codecov.io/gh/pskfyi/js-type-systems)
 
+> **CAUTION** - This is still under development 
+
 <img src="/logo.svg" width="300">
 
 [Documentation](https://js-type-system-dev-docs.netlify.com/) \- 
 [GitHub Repo](https://github.com/pskfyi/js-type-systems)
 
 Utilities for working with JavaScript's type systems.
-
-> Note this is not yet on `npm`
 
 ```sh
 npm i js-type-systems
