@@ -5,9 +5,8 @@
 
 <img src="/logo.svg" width="300">
 
-\- [Documentation](https://js-type-system-dev-docs.netlify.com/)
-\- [GitHub Repo](https://github.com/pskfyi/js-type-systems)
-\-
+[Documentation](https://js-type-system-dev-docs.netlify.com/) \- 
+[GitHub Repo](https://github.com/pskfyi/js-type-systems)
 
 Utilities for working with JavaScript's type systems.
 
@@ -21,15 +20,15 @@ npm i js-type-systems
 import { JS } from 'js-type-systems';
 
 // Superior typeof variant
-JS.typeof(undefined) // "undefined"
+JS.typeof(null) // "null"
 JS.typeof(/[A-Z]+/g) // "regExp"
 
 // Optional namespacing
 JS.typeof(NaN) // "nan"
 JS.typeof(NaN, { namespace: true }) // "js/nan"
 
-// Optionally view additional types using `typesof()` with an "s"
-JS.typeof([]) // "array"
+// Use typesof (with an "s"!) to view all types
+JS.typeof([])  // "array"
 JS.typesof([]) // ["object", "array"]
 JS.typesof([], { namespace: true }) // ["js/object", "js/array"]
 
