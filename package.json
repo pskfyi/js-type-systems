@@ -1,6 +1,6 @@
 {
   "name": "js-type-systems",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Utilities for working with JavaScript's type systems",
   "main": "dist/index.js",
   "scripts": {
