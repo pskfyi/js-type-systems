@@ -16,6 +16,11 @@ const config = {
 if (process.env.CI) {
   config.collectCoverage = true
   config.coverageDirectory = "coverage"
+  config.coverageThreshold = {
+    global: {
+      statements: 100
+    }
+  }
 }
 
 module.exports = config;
