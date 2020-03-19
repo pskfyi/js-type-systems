@@ -1,0 +1,6 @@
+{
+  "jest.enableInlineErrorMessages": true,
+  "jest.autoEnable": true,
+  "jest.showCoverageOnLoad": true,
+  "jest.enableSnapshotPreviews": false
+}
