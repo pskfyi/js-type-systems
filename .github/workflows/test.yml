@@ -1,18 +1,22 @@
 name: Tests
 
-on: [push]
+on: 
+  push:
+    branches-ignore:
+    - master
+    - next
 jobs:
   unit-test:
     name: Jest unit tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
     - run: npm i -g install-subset
     - run: npm run install:jest
     - run: npm test
       env:
         CI: true
     - name: Codecov
-      uses: codecov/codecov-action@v1.0.6
+      uses: codecov/codecov-action@master
 
