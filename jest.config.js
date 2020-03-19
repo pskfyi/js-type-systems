@@ -1,6 +1,4 @@
-module.exports = {
-  collectCoverage: true,
-  coverageDirectory: "coverage",
+const config = {
   moduleNameMapper: {
     '@/(.*)$': "<rootDir>/src/$1"
   },
@@ -14,3 +12,10 @@ module.exports = {
     "^.+\\.js$": "babel-jest",
   }
 };
+
+if (process.env.CI) {
+  config.collectCoverage = true
+  config.coverageDirectory = "coverage"
+}
+
+module.exports = config;
