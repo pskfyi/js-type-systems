@@ -1,6 +1,10 @@
 name: Tests
 
-on: [push]
+on: 
+  push:
+    branches-ignore:
+    - master
+    - next
 jobs:
   unit-test:
     name: Jest unit tests
