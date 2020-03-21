@@ -42,3 +42,7 @@ JS.types // { string: <stringDef>, regExp: <regExpDef>, ... MANY types]
 JS.types.bigInt // full type definition
 JS.types.bigInt.namePlural // "bigInts"
 ```
+
+---
+
+Logo: [Structure by priyanka from the Noun Project](https://thenounproject.com/term/structure/2170306/)
