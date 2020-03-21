@@ -8,8 +8,10 @@
 
 <img src="logo.svg" width="300">
 
-[Documentation](https://js-type-system-dev-docs.netlify.com/) \- 
-[GitHub Repo](https://github.com/pskfyi/js-type-systems)
+[Docs](https://js-type-systems.netlify.com/) \- 
+[Dev Docs](https://develop--js-type-systems.netlify.com/) \- 
+[GitHub](https://github.com/pskfyi/js-type-systems) \-
+[NPM](https://www.npmjs.com/package/js-type-systems)
 
 Utilities for working with JavaScript's type systems.
 
