@@ -10,8 +10,8 @@
 
 <img src="logo.svg" width="300">
 
-[Docs](https://js-type-systems.netlify.com/) \- 
-[Dev Docs](https://develop--js-type-systems.netlify.com/)
+[Documentation](https://js-type-systems.netlify.com/) 
+(Or docs for [dev branch](https://develop--js-type-systems.netlify.com/), [@next branch](https://next--js-type-systems.netlify.com/)]
 
 Utilities for working with JavaScript's type systems.
 
