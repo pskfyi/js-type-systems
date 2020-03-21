@@ -2,7 +2,8 @@ const path = require('path')
 const babelOptions = require('./babel.config.js') 
 
 module.exports = {
-  devtool: 'eval-source-map',
+  entry: './src/index.ts',
+  devtool: 'inline-source-map',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
@@ -11,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.m?(t|j)s$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
@@ -19,5 +20,8 @@ module.exports = {
         }
       }
     ]
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
   }
 }
