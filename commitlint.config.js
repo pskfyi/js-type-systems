@@ -7,7 +7,8 @@ module.exports = {
       [
         "repo",
         "github",
-        "docs"
+        "docs",
+        "lib"
       ]
     ]
   }
