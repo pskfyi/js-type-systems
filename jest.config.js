@@ -1,26 +1,23 @@
-const config = {
+module.exports = {
   moduleNameMapper: {
     '@/(.*)$': "<rootDir>/src/$1"
   },
   rootDir: '.',
   testEnvironment: "node",
   testMatch: [
-    "**/test/**/*.js",
-    "**/?(*.)+.(spec|test).js"
+    "**/test/**/*.spec.js"
   ],
   transform: {
     "^.+\\.js$": "babel-jest",
-  }
-};
-
-if (process.env.CI) {
-  config.collectCoverage = true
-  config.coverageDirectory = "coverage"
-  config.coverageThreshold = {
+  },
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "./src/**/*.js",
+  ],
+  coverageDirectory: "coverage",
+  coverageThreshold: {
     global: {
       statements: 100
     }
   }
 }
-
-module.exports = config;
