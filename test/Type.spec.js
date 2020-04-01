@@ -2,7 +2,12 @@ import Type from '@/core/Type'
 import examples from '@/core/Type.examples'
 import { testsForConstructorExamples } from './helpers'
 
-const validTypes = examples.valid.map(ex => new Type(ex.arg))
+const validTypes = examples.valid.map(ex => {
+  const type = new Type(ex.arg)
+  type.castables = ex.castables
+  type.uncastables = ex.uncastables
+  return type
+})
 const numericType = validTypes[0]
 const nullType = validTypes[1]
 const boolType = validTypes[2]
@@ -55,33 +60,6 @@ describe('class Type', () => {
   
   
   describe('methods', () => {
-    describe('is()', () => {
-      it('must be a function', () => {
-        expect(() => new Type({
-          name: 'undefined',
-          new: () => undefined,
-          to: _val => undefined
-        })).toThrow()
-      })
-      
-      it('automatically constructs a function for literals', () => {
-        expect(nullType.is(undefined)).toBe(false)
-        expect(nullType.is(null)).toBe(true)
-        expect(boolType.is(undefined)).toBe(false)
-        expect(boolType.is(false)).toBe(true)
-      })
-      it('is functional for all valid example args', () => {
-        validTypes.forEach(type => {
-          expect(() => type.is()).not.toThrow()
-        })
-      })
-      it('returns true when passed the result of new() or to() for all valid example args', () => {
-        validTypes.forEach(type => {
-          expect(type.is(type.new())).toBe(true)
-          expect(type.is(type.to())).toBe(true)
-        })
-      })
-    })
     describe('new()', () => {
       it('must be a function', () => {
         expect(() => new Type({
@@ -110,10 +88,56 @@ describe('class Type', () => {
       it('automatically constructs a function for constants', () => {
         expect(nullType.to('foo')).toBe(null)
       })
-      it('is functional for all valid example args', () => {
+      it('casts all provided castables', () => {
+        validTypes.forEach(type => (type.castables || []).forEach(castable => {
+          expect(() => type.to(castable)).not.toThrow()
+        }))
+      })
+      it('casts undefined when no castables are provided', () => {
         validTypes.forEach(type => {
-          expect(() => type.to()).not.toThrow()
+          if (!type.castables) expect(() => type.to()).not.toThrow()
         })
+      })
+      it('fails to cast all provided uncastables', () => {
+        validTypes.forEach(type => (type.uncastables || []).forEach(uncastable => {
+          expect(() => type.to(uncastable)).toThrow()
+        }))
+      })
+    })
+  })
+  describe('is()', () => {
+    it('must be a function', () => {
+      expect(() => new Type({
+        name: 'undefined',
+        new: () => undefined,
+        to: _val => undefined
+      })).toThrow()
+    })
+    
+    it('automatically constructs a function for literals', () => {
+      expect(nullType.is(undefined)).toBe(false)
+      expect(nullType.is(null)).toBe(true)
+      expect(boolType.is(undefined)).toBe(false)
+      expect(boolType.is(false)).toBe(true)
+    })
+    it('is functional for all valid example args', () => {
+      validTypes.forEach(type => {
+        expect(() => type.is()).not.toThrow()
+      })
+    })
+    it('returns true when passed the result of new() for all valid example args', () => {
+      validTypes.forEach(type => {
+        expect(type.is(type.new())).toBe(true)
+      })
+    })
+    it('returns true when passed the result of to() for all valid example args castables', () => {
+      validTypes.forEach(type => (type.castables || []).forEach(castable => {
+        expect(type.is(type.to(castable))).toBe(true)
+      }))
+    })
+    it('returns true when passed the result of to(undefined) for all valid example args without castables', () => {
+      validTypes.forEach(type => {
+        if (!type.castables) expect(type.is(type.to())).toBe(true)
       })
     })
   })
