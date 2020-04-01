@@ -17,6 +17,3 @@ jobs:
     - run: npm test
       env:
         CI: true
-    - name: Codecov
-      uses: codecov/codecov-action@master
-
