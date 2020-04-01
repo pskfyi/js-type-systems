@@ -1,0 +1,1 @@
+numericType.new() // 0
