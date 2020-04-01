@@ -6,14 +6,14 @@ export const valid = [
       is: val => ['bigint', 'number'].includes(typeof val),
       new: () => 0,
       to: val => {
-        try {
-          return Number(val)
-        } catch {
-          return BigInt(val)
-        }
+        const asNumber = Number(val)
+        if (!isNaN(asNumber)) return asNumber
+        return BigInt(val)
       },
       parents: ['number']
-    }
+    },
+    castables: ["10", "10000000000000000"],
+    uncastables: [undefined]
   },
   {
     it: 'can succintly define a type with a constant value',
