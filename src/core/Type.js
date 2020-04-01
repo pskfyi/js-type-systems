@@ -19,7 +19,7 @@ export default class Type {
     
     // Values and derived information
     this.values = typeDef.values
-    this.particular = Boolean(typeDef.values.length)
+    this.literal = Boolean(typeDef.values.length)
     this.constant = typeDef.values.length === 1
     
     // Methods 
@@ -28,7 +28,7 @@ export default class Type {
       if (!typeDef.is) typeDef.is = val => this.value === val
       typeDef.new = () => this.value
       typeDef.to = typeDef.new
-    } else if (this.particular) {
+    } else if (this.literal) {
       if (!typeDef.is) typeDef.is = val => typeDef.values.includes(val)
     }
     

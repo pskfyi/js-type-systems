@@ -30,11 +30,11 @@ describe('class Type', () => {
         expect(arrType.values).toStrictEqual([])
       })
   
-      describe('derived property: particular', () => {
+      describe('derived property: literal', () => {
         it('is true when there are values', () => {
-          expect(arrType.particular).toBe(false)
-          expect(nullType.particular).toBe(true)
-          expect(boolType.particular).toBe(true)
+          expect(arrType.literal).toBe(false)
+          expect(nullType.literal).toBe(true)
+          expect(boolType.literal).toBe(true)
         })
       })
       
@@ -70,7 +70,7 @@ describe('class Type', () => {
         })).toThrow()
       })
       
-      it('automatically constructs a function for constants and particulars', () => {
+      it('automatically constructs a function for literals', () => {
         expect(nullType.is(undefined)).toBe(false)
         expect(nullType.is(null)).toBe(true)
         expect(boolType.is(undefined)).toBe(false)
