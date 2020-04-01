@@ -1,13 +1,29 @@
 export const valid = [
   {
-    it: 'can define a constant type',
+    it: 'can define a custom data type',
+    arg: {
+      name: 'numeric',
+      is: val => ['bigint', 'number'].includes(typeof val),
+      new: () => 0,
+      to: val => {
+        try {
+          return Number(val)
+        } catch {
+          return BigInt(val)
+        }
+      },
+      parents: ['number']
+    }
+  },
+  {
+    it: 'can succintly define a type with a constant value',
     arg: {
       name: 'null',
       values: [null]
     }
   },
   {
-    it: 'can define a type with a particular set of values',
+    it: 'can succintly define a type with a set of constant values',
     arg: {
       name: 'boolean',
       values: [true, false],
@@ -23,7 +39,7 @@ export const invalid = [
     arg: 'foo'
   },
   {
-    it: 'name property must be nonempty string',
+    it: 'has a nonempty string name property',
     arg: {
       name: ''
     }

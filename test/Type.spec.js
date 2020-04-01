@@ -3,15 +3,9 @@ import examples from '@/core/Type.examples'
 import { testsForConstructorExamples } from './helpers'
 
 const validTypes = examples.valid.map(ex => new Type(ex.arg))
-const nullType = validTypes[0]
-const boolType = validTypes[1]
-const arrType = new Type({
-  name: 'array',
-  parents: ['object'],
-  is: val => Array.isArray(val),
-  new: () => [],
-  to: val => Array(val)
-})
+const numericType = validTypes[0]
+const nullType = validTypes[1]
+const boolType = validTypes[2]
 
 describe('class Type', () => {
   testsForConstructorExamples(Type, examples)
@@ -27,12 +21,12 @@ describe('class Type', () => {
     
     describe('values', () => {
       it('defaults to an empty array', () => {
-        expect(arrType.values).toStrictEqual([])
+        expect(numericType.values).toStrictEqual([])
       })
   
       describe('derived property: literal', () => {
         it('is true when there are values', () => {
-          expect(arrType.literal).toBe(false)
+          expect(numericType.literal).toBe(false)
           expect(nullType.literal).toBe(true)
           expect(boolType.literal).toBe(true)
         })
@@ -40,7 +34,7 @@ describe('class Type', () => {
       
       describe('derived property: constant', () => {
         it('is true when there is exactly one value', () => {
-          expect(arrType.constant).toBe(false)
+          expect(numericType.constant).toBe(false)
           expect(nullType.constant).toBe(true)
           expect(boolType.constant).toBe(false)
         })
@@ -53,7 +47,7 @@ describe('class Type', () => {
       })
   
       describe('derived property primitive', () => {
-        expect(arrType.primitive).toBe(false)
+        expect(numericType.primitive).toBe(false)
         expect(nullType.primitive).toBe(true)
       })
     })
